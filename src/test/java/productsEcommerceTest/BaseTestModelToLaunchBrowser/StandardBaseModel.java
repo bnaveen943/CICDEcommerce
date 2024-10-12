@@ -55,13 +55,10 @@ public class StandardBaseModel {
 			}
 			driver = new ChromeDriver(options);
 			driver.manage().window().setSize(new Dimension(1440, 900));
-			
 
 		}
-// Some comment to verify
-		
-		// some change to push this to Jenkins
-		
+// man changed something new
+
 		/*
 		 * if (browserName.equalsIgnoreCase("chrome")) {
 		 * WebDriverManager.chromedriver().setup(); driver = new ChromeDriver();
@@ -69,8 +66,8 @@ public class StandardBaseModel {
 		 * 
 		 * }
 		 */
-		 
-		  else if (browserName.equalsIgnoreCase("fireFox")) {
+
+		else if (browserName.equalsIgnoreCase("fireFox")) {
 			// firefox
 			driver = new FirefoxDriver();
 		} else if (browserName.equalsIgnoreCase("Edge")) {
