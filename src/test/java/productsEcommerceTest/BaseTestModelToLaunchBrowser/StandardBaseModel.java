@@ -64,7 +64,7 @@ public class StandardBaseModel {
 
 		if (browserName.equalsIgnoreCase("chrome")) {
 			WebDriverManager.chromedriver().setup();
-			driver = new ChromeDriver();
+		//	driver = new ChromeDriver();
 			DesiredCapabilities caps=new DesiredCapabilities();
 			caps.setBrowserName(browserName);
 			driver =new RemoteWebDriver(new URI("http://192.168.1.30:4444").toURL(),caps);
