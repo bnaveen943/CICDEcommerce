@@ -49,28 +49,30 @@ public class StandardBaseModel {
 		// = prop.getProperty("browser");
 
 		// TO run test cases in headless mode use can use this below login
-		/*
-		 * if (browserName.contains("chrome")) {
-		 * WebDriverManager.chromedriver().setup();
-		 * 
-		 * ChromeOptions options = new ChromeOptions(); if
-		 * (browserName.contains("headless")) { options.addArguments("headless"); }
-		 * driver = new ChromeDriver(options); driver.manage().window().setSize(new
-		 * Dimension(1440, 900));
-		 * 
-		 * }
-		 */
+		
+		  if (browserName.contains("chrome")) {
+		  WebDriverManager.chromedriver().setup();
+		  
+		  ChromeOptions options = new ChromeOptions(); if
+		  (browserName.contains("headless")) { options.addArguments("headless"); }
+		  driver = new ChromeDriver(options); driver.manage().window().setSize(new
+		  Dimension(1440, 900));
+		  
+		  }
+		 
 // man changed something new
 
-		if (browserName.equalsIgnoreCase("chrome")) {
+		/*if (browserName.equalsIgnoreCase("chrome")) {
 			WebDriverManager.chromedriver().setup();
-		//	driver = new ChromeDriver();
-			DesiredCapabilities caps=new DesiredCapabilities();
-			caps.setBrowserName(browserName);
-			driver =new RemoteWebDriver(new URI("http://192.168.1.30:4444").toURL(),caps);
+			driver = new ChromeDriver();
+			
+			 * DesiredCapabilities caps=new DesiredCapabilities();
+			 * caps.setBrowserName(browserName); driver =new RemoteWebDriver(new
+			 * URI("http://192.168.1.30:4444").toURL(),caps);
+			 
 			driver.manage().window().setSize(new Dimension(1440, 900));
 
-		}
+		}*/
 
 		else if (browserName.equalsIgnoreCase("fireFox")) {
 			// firefox
