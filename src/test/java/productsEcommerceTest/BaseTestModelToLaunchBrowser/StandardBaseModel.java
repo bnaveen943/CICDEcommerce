@@ -3,6 +3,8 @@ package productsEcommerceTest.BaseTestModelToLaunchBrowser;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.net.URI;
+import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.time.Duration;
 import java.util.HashMap;
@@ -18,6 +20,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
@@ -45,27 +49,28 @@ public class StandardBaseModel {
 		// = prop.getProperty("browser");
 
 		// TO run test cases in headless mode use can use this below login
-
-		if (browserName.contains("chrome")) {
-			WebDriverManager.chromedriver().setup();
-
-			ChromeOptions options = new ChromeOptions();
-			if (browserName.contains("headless")) {
-				options.addArguments("headless");
-			}
-			driver = new ChromeDriver(options);
-			driver.manage().window().setSize(new Dimension(1440, 900));
-
-		}
-// man changed something new
-
 		/*
-		 * if (browserName.equalsIgnoreCase("chrome")) {
-		 * WebDriverManager.chromedriver().setup(); driver = new ChromeDriver();
-		 * driver.manage().window().setSize(new Dimension(1440, 900));
+		 * if (browserName.contains("chrome")) {
+		 * WebDriverManager.chromedriver().setup();
+		 * 
+		 * ChromeOptions options = new ChromeOptions(); if
+		 * (browserName.contains("headless")) { options.addArguments("headless"); }
+		 * driver = new ChromeDriver(options); driver.manage().window().setSize(new
+		 * Dimension(1440, 900));
 		 * 
 		 * }
 		 */
+// man changed something new
+
+		if (browserName.equalsIgnoreCase("chrome")) {
+			WebDriverManager.chromedriver().setup();
+			driver = new ChromeDriver();
+			DesiredCapabilities caps=new DesiredCapabilities();
+			caps.setBrowserName(browserName);
+			driver =new RemoteWebDriver(new URI("http://192.168.1.30:4444").toURL(),caps);
+			driver.manage().window().setSize(new Dimension(1440, 900));
+
+		}
 
 		else if (browserName.equalsIgnoreCase("fireFox")) {
 			// firefox
